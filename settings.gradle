@@ -1,0 +1,3 @@
+rootProject.name='XNet'
+include ':app'
+include ':XNet'
