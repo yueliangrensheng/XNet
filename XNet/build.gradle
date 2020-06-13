@@ -7,7 +7,7 @@ publish {
     userOrg = 'moonlife' //在https://bintray.com上注册的用户名
     groupId = 'com.yazao' //jCenter上的路径
     artifactId = 'xnet' //项目名称 --- 必须和 bintray上的创建的Name一致
-    publishVersion = '1.0.0' //library的版本号
+    publishVersion = '1.0.1' //library的版本号
     desc = 'a net listener lib for Android' //library的简单描述
     website = 'https://github.com/yueliangrensheng/XNet' //library的开源地址，例如在github上的地址
 }
@@ -38,8 +38,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-
-    implementation 'com.yazao:xlog:1.0.0'
+    //xlog
+    implementation 'com.yazao:xlog:+'
 }
