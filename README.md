@@ -2,8 +2,18 @@
 XNet是一个网络变化的监听组件
 
 # how to use
+1. app/build.gradle
+```
+dependencies {
+    ...
 
-1. 权限配置  
+    // xbase
+    implementation 'com.yazao:xnet:1.0.1'
+
+}
+```
+
+2. 权限配置  
 在清单文件中如下配置：
 ```
     <!-- 用于访问网络 -->
@@ -14,7 +24,7 @@ XNet是一个网络变化的监听组件
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 ```
 
-2. 广播注册  
+3. 广播注册
 基于Android 7.0 广播一律采用动态注册方式  
 
 在 Activity的 onCreate()方法中  
