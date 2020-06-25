@@ -7,7 +7,7 @@ XNet是一个网络变化的监听组件
 dependencies {
     ...
 
-    // xbase
+    // xnet
     implementation 'com.yazao:xnet:1.0.1'
 
 }
