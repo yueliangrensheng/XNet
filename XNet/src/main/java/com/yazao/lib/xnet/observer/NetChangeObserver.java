@@ -1,5 +1,5 @@
 
-package com.yazao.lib.net;
+package com.yazao.lib.xnet.observer;
 
 public interface NetChangeObserver {
 

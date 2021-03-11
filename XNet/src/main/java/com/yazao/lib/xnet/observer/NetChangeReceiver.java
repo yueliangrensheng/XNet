@@ -1,5 +1,5 @@
 
-package com.yazao.lib.net;
+package com.yazao.lib.xnet.observer;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

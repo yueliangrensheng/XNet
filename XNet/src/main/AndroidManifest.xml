@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yazao.lib.net" >
+    package="com.yazao.lib.xnet" >
 
     <!-- 用于访问网络 -->
     <uses-permission android:name="android.permission.INTERNET"/>
