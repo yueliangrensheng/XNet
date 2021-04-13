@@ -8,6 +8,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 
 import com.yazao.lib.xlog.Log;
+import com.yazao.lib.xnet.NetConfig;
 
 
 /**
@@ -60,7 +61,9 @@ public class NetChangeReceiverUtil {
         }
 
         mContext.getApplicationContext().registerReceiver(netChangeObserverReceiver, filter);
-        Log.i("registerNetworkStateReceiver");
+        if (NetConfig.getInstance().getShowNetLog()){
+            Log.i("registerNetworkStateReceiver");
+        }
     }
 
     /**
@@ -74,9 +77,13 @@ public class NetChangeReceiverUtil {
             try {
                 mContext.getApplicationContext().unregisterReceiver(netChangeObserverReceiver);
                 netChangeObserverReceiver = null;
-                Log.i("unRegisterNetworkStateReceiver");
+                if (NetConfig.getInstance().getShowNetLog()){
+                    Log.i("unRegisterNetworkStateReceiver");
+                }
             } catch (Exception e) {
-                Log.d(e.getMessage());
+                if (NetConfig.getInstance().getShowNetLog()){
+                    Log.d(e.getMessage());
+                }
             }
         }
 
@@ -92,6 +99,8 @@ public class NetChangeReceiverUtil {
         Intent intent = new Intent();
         intent.setAction(NetChangeReceiver.CUSTOM_ANDROID_NET_CHANGE_ACTION);
         mContext.sendBroadcast(intent);
-        Log.i("sendNetChangeBroadcastReceiver");
+        if (NetConfig.getInstance().getShowNetLog()){
+            Log.i("sendNetChangeBroadcastReceiver");
+        }
     }
 }

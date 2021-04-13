@@ -7,6 +7,7 @@ import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 
 import com.yazao.lib.xlog.Log;
+import com.yazao.lib.xnet.NetConfig;
 
 import java.util.Locale;
 
@@ -61,7 +62,9 @@ public class NetUtil {
         if (telephonyManager != null) {
             if (telephonyManager.getNetworkType() != TelephonyManager.NETWORK_TYPE_UNKNOWN) {
                 enable = true;
-                Log.i("移动网络已开启");
+                if (NetConfig.getInstance().getShowNetLog()){
+                    Log.i("移动网络已开启");
+                }
             }
         }
         return enable;
@@ -81,7 +84,9 @@ public class NetUtil {
         WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         if (wifiManager != null && wifiManager.isWifiEnabled()) {
             enable = true;
-            Log.i("WIFI已开启");
+            if (NetConfig.getInstance().getShowNetLog()){
+                Log.i("WIFI已开启");
+            }
         }
         return enable;
     }
@@ -103,10 +108,14 @@ public class NetUtil {
                 .getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         if (mobileNetworkInfo != null && mobileNetworkInfo.isConnected()) {
 
-            Log.i("移动网络已连接");
+            if (NetConfig.getInstance().getShowNetLog()){
+                Log.i("移动网络已连接");
+            }
             return true;
         }
-        Log.i("移动网络未连接");
+        if (NetConfig.getInstance().getShowNetLog()){
+            Log.i("移动网络未连接");
+        }
         return false;
     }
 
@@ -126,10 +135,14 @@ public class NetUtil {
                 .getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         if (wifiNetworkInfo != null && wifiNetworkInfo.isConnected()) {
 
-            Log.i("Wifi网络已连接");
+            if (NetConfig.getInstance().getShowNetLog()){
+                Log.i("Wifi网络已连接");
+            }
             return true;
         }
-        Log.i("Wifi网络未连接");
+        if (NetConfig.getInstance().getShowNetLog()){
+            Log.i("Wifi网络未连接");
+        }
         return false;
     }
 
