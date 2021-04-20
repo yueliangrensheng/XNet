@@ -62,6 +62,10 @@ afterEvaluate { project ->
     }
 }
 //---------------------------------- maven end -------------------------------
+//---------------------------------- sonatype maven center start -------------------------------
+//这里是上传到 Sonatype 的 MavenCenter仓库中
+apply from: "${rootProject.projectDir}/build_mavencentral.gradle"
+//---------------------------------- sonatype maven center end -------------------------------
 
 android {
     compileSdkVersion 29
