@@ -1,7 +1,7 @@
 # XNet
 XNet是一个网络变化的监听组件
 
-## how to use
+# how to use
 1. app/build.gradle
 ```
 dependencies {
