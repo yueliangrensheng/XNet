@@ -4,8 +4,8 @@ buildscript {
     ext.kotlin_version = "1.4.21"
     repositories {
         google()
+        mavenCentral()
         jcenter()
-        
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.1'
@@ -21,8 +21,8 @@ buildscript {
 allprojects {
     repositories {
         google()
+        mavenCentral()
         jcenter()
-        
     }
     tasks.withType(Javadoc) {
         options.addStringOption('Xdoclint:none', '-quiet')
