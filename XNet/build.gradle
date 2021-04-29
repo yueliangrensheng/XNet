@@ -2,20 +2,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-//---------------------------------- jCenter begin -------------------------------
-apply plugin: 'com.novoda.bintray-release'
-
-//jCenter 新添加
-publish {
-    userOrg = 'moonlife' //在https://bintray.com上注册的用户名
-    groupId = 'com.yazao' //jCenter上的路径
-    artifactId = 'xnet' //项目名称 --- 必须和 bintray上的创建的Name一致
-    publishVersion = '1.0.2' //library的版本号
-    desc = 'a net listener lib for Android' //library的简单描述
-    website = 'https://github.com/yueliangrensheng/XNet' //library的开源地址，例如在github上的地址
-}
-
-//---------------------------------- jCenter end -------------------------------
 //---------------------------------- maven start -------------------------------
 apply plugin: 'maven'
 
@@ -35,9 +21,9 @@ afterEvaluate { project ->
     uploadArchives {
         repositories {
             mavenDeployer {
-                pom.groupId = GROUP
-                pom.artifactId = "xnet"
-                pom.version = VERSION_NAME
+                pom.groupId = PUBLISH_GROUP_ID
+                pom.artifactId = PUBLISH_ARTIFACT_ID
+                pom.version = PUBLISH_VERSION
                 repository(url: uri(RELEASE_REPOSITORY_URL)) {
                     authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
                 }
@@ -52,10 +38,11 @@ afterEvaluate { project ->
         classifier = 'javadoc'
         from androidJavadocs.destinationDir
     }
-    task androidSourcesJar(type: Jar) {
-        classifier = 'sources'
-        from android.sourceSets.main.java.sourceFiles
-    }
+//     这里注释的原因 ： build_mavencentral.properties 中已经定义了 这个 Task
+//    task androidSourcesJar(type: Jar) {
+//        classifier = 'sources'
+//        from android.sourceSets.main.java.sourceFiles
+//    }
     artifacts {
         archives androidSourcesJar
 //        archives androidJavadocsJar
